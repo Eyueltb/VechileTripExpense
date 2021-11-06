@@ -23,5 +23,40 @@ public class Trip {
         this.passengerCount = passengerCount;
         this.travelPlan = travelPlan;
         this.isStandardRate = isStandardRate;
+
+        this.vehicle.setStandardRate(this.calculateExtraPassengerCharges());
+    }
+
+    private double calculateExtraPassengerCharges() {
+        if( this.passengerCount > vehicle.getPassengerLimit()){
+           return vehicle.getRates().getAdditionalPassengerChargers()
+                    * (this.passengerCount - vehicle.getPassengerLimit())
+                    + vehicle.getStandardRate();
+        }
+        return vehicle.getStandardRate();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public int getPassengerCount() {
+        return passengerCount;
+    }
+
+    public List<String> getTravelPlan() {
+        return travelPlan;
+    }
+
+    public boolean isStandardRate() {
+        return isStandardRate;
     }
 }

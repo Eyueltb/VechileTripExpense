@@ -12,21 +12,23 @@ public class Vehicle {
     FuelType fuelType;
     VehicleType vehicleType;
     double standardRate;
-    int passengers;
     boolean isAC;
+    int passengerLimit;
+    double standardDiscount;
 
     public Vehicle(int id, TravelAgencyRates rates, FuelType fuelType, VehicleType vehicleType,
-                   int passengers, boolean isAC) {
+                   boolean isAC, int passengerLimit, double standardDiscount) {
         this.id = id;
         this.rates = rates;
         this.fuelType = fuelType;
         this.vehicleType = vehicleType;
-        this.passengers = passengers;
         this.isAC = isAC;
+        this.passengerLimit=passengerLimit;
+        this.standardDiscount=standardDiscount;
 
         calculateFuelDiscount();
         calculateStandardRate();
-        calculateExtraPassengerCharges();
+        calculateAcCharges();
     }
 
     private void calculateFuelDiscount(){
@@ -37,7 +39,7 @@ public class Vehicle {
 
     public void calculateStandardRate(){
        if(this.vehicleType == BUS){
-           this.standardRate = this.standardRate - this.rates.getStandardDiscount() / 100 * this.standardRate;
+           this.standardRate = this.standardRate - this.standardDiscount/ 100 * this.standardRate;
        }
     }
 
@@ -46,12 +48,24 @@ public class Vehicle {
             this.standardRate = this.standardRate + this.rates.getAcCharges();
         }
     }
-    public void calculateExtraPassengerCharges() { //done after we apply discount on standard rate
-        if( this.passengers > this.rates.getPassengerLimit()){
-            this.standardRate = this.rates.getAdditionalPassengerChargers()
-                    * (this.passengers - this.rates.getPassengerLimit())
-                    + this.standardRate;
-        }
+
+    public int getId() {
+        return id;
     }
 
+    public double getStandardRate() {
+        return standardRate;
+    }
+
+    public void setStandardRate(double standardRate) {
+        this.standardRate = standardRate;
+    }
+
+    public TravelAgencyRates getRates() {
+        return rates;
+    }
+
+    public int getPassengerLimit() {
+        return passengerLimit;
+    }
 }
