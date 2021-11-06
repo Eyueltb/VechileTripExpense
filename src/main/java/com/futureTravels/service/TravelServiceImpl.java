@@ -38,7 +38,7 @@ public class TravelServiceImpl implements TravelService{
                         List<String> travelPlan, boolean isStandardRate) {
         //calculate id;
         trip=new Trip(1, vehicle, fuelType, passengerCount, travelPlan, isStandardRate);
-   
+
     }
 
     @Override
