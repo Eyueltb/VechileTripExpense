@@ -1,11 +1,13 @@
 package com.futureTravels.dao;
 
 import com.futureTravels.dao.vehicle.Vehicle;
+import lombok.Data;
 
 import java.util.List;
 
 import static com.futureTravels.dao.vehicle.VehicleProperties.*;
 
+@Data
 public class Trip {
     int id;
     Vehicle vehicle;
@@ -36,27 +38,5 @@ public class Trip {
         return vehicle.getStandardRate();
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public FuelType getFuelType() {
-        return fuelType;
-    }
-
-    public int getPassengerCount() {
-        return passengerCount;
-    }
-
-    public List<String> getTravelPlan() {
-        return travelPlan;
-    }
-
-    public boolean isStandardRate() {
-        return isStandardRate;
-    }
 }

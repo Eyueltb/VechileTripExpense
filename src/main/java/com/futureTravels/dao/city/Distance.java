@@ -1,5 +1,9 @@
 package com.futureTravels.dao.city;
 
+
+import lombok.Data;
+
+@Data
 public class Distance {
     int from;
     int to;
@@ -11,15 +15,4 @@ public class Distance {
         this.distance = distance;
     }
 
-    public int getFrom() {
-        return from;
-    }
-
-    public int getTo() {
-        return to;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
 }

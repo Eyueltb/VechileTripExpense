@@ -1,12 +1,13 @@
 package com.futureTravels.dao.vehicle;
 
 import com.futureTravels.dao.TravelAgencyRates;
+import lombok.Data;
 
 import static com.futureTravels.dao.vehicle.VehicleProperties.*;
 import static com.futureTravels.dao.vehicle.VehicleProperties.VehicleType.*;
 
+@Data
 public class Vehicle {
-
     int id;
     TravelAgencyRates rates;
     FuelType fuelType;
@@ -49,23 +50,4 @@ public class Vehicle {
         }
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public double getStandardRate() {
-        return standardRate;
-    }
-
-    public void setStandardRate(double standardRate) {
-        this.standardRate = standardRate;
-    }
-
-    public TravelAgencyRates getRates() {
-        return rates;
-    }
-
-    public int getPassengerLimit() {
-        return passengerLimit;
-    }
 }

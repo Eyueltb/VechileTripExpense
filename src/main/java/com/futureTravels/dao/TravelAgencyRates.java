@@ -1,5 +1,8 @@
 package com.futureTravels.dao;
 
+import lombok.Data;
+
+@Data
 public class TravelAgencyRates {
     double standardPetrolRate;
     double additionalPassengerChargers;
@@ -14,19 +17,4 @@ public class TravelAgencyRates {
         this.dieselDiscount = dieselDiscount;
     }
 
-    public double getStandardPetrolRate() {
-        return standardPetrolRate;
-    }
-
-    public double getAdditionalPassengerChargers() {
-        return additionalPassengerChargers;
-    }
-
-    public double getAcCharges() {
-        return acCharges;
-    }
-
-    public double getDieselDiscount() {
-        return dieselDiscount;
-    }
 }
